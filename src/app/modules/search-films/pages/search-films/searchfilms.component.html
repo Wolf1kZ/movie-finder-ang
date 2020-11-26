@@ -1,0 +1,50 @@
+<main>
+  <div class="search-block">
+    <h1>Search movies</h1>
+    <mat-form-field>
+      <mat-label>Movie name</mat-label>
+      <input matInput
+             type="text"
+             [(ngModel)]="movieName"
+      >
+      <button
+        mat-button *ngIf="movieName"
+        matSuffix
+        mat-icon-button
+        aria-label="Clear"
+        (click)="movieName=''">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <button
+      mat-button color="primary"
+      *ngIf="!(movieName.trim() === '')"
+      (click)="searchMovie()">
+      Search
+    </button>
+  </div>
+  <div class="content">
+    <h1 *ngIf="films.length === 0 && response.keyword">Фильмов не найдено</h1>
+    <mat-card *ngFor="let movie of films">
+      <mat-card-header>
+        <mat-card-title *ngIf="movie.nameRu">{{movie.nameRu}}</mat-card-title>
+        <mat-card-title *ngIf="!movie.nameRu">{{movie.nameEn}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{movie.posterUrl}}" alt="Poster">
+      <mat-card-content>
+        <p *ngIf="movie.rating">
+          Рейтинг: {{movie.rating}}
+        </p>
+        <p *ngIf="!movie.rating">
+          Рейтинг: ...
+        </p>
+        <p>
+          Год: {{movie.year}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>ABOUT</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</main>

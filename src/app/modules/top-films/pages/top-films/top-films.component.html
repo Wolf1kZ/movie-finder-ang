@@ -1,0 +1,27 @@
+<main>
+  <h1>Top Movies</h1>
+  <div class="content">
+    <mat-card *ngFor="let movie of films">
+      <mat-card-header>
+        <mat-card-title *ngIf="movie.nameRu">{{movie.nameRu}}</mat-card-title>
+        <mat-card-title *ngIf="!movie.nameRu">{{movie.nameEn}}</mat-card-title>
+      </mat-card-header>
+      <img mat-card-image src="{{movie.posterUrl}}" alt="Poster">
+      <mat-card-content>
+        <p *ngIf="movie.rating">
+          Рейтинг: {{movie.rating}}
+        </p>
+        <p *ngIf="!movie.rating">
+          Рейтинг: ...
+        </p>
+        <p>
+          Год: {{movie.year}}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>ABOUT</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</main>
+
