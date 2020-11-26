@@ -1,0 +1,90 @@
+.container {
+  padding: 20px;
+  text-align: center;
+
+  h1 {
+    font-size: 40px;
+  }
+
+  .movie-slogan {
+    font-style: italic;
+    font-size: 16px;
+    color: gray;
+    margin-bottom: 40px;
+  }
+
+  img {
+    width: 400px;
+    height: 600px;
+    border-radius: 10px;
+    object-fit: cover;
+  }
+}
+
+.movie {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.movie-info {
+  text-align: center;
+  flex-grow: 4;
+  margin-left: 10px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  padding: 10px;
+
+  .description {
+    margin-bottom: 40px;
+  }
+
+  .premier-date {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    h3 {
+      margin-right: 25px;
+    }
+  }
+
+  .movie-genres {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 40px;
+
+    li {
+      margin-right: 15px;
+      font-size: 16px;
+    }
+  }
+
+  .other-info {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+
+    h3 {
+      margin-right: 25px;
+    }
+  }
+
+  .rating {
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      margin: 0;
+    }
+  }
+}
+
+.container-trailer {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 15px;
+  margin-bottom: 40px;
+}

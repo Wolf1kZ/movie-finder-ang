@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IFilm, ISearchMovie } from '../../../../core/services/movie.model';
 import { MovieService } from '../../../../core/services/movie.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-genres-films',
@@ -13,6 +14,7 @@ export class GenresFilmsComponent implements OnInit {
   films: IFilm[] = [];
 
   constructor(
+    private router: Router,
     private movieService: MovieService
   ) {
   }
@@ -26,6 +28,10 @@ export class GenresFilmsComponent implements OnInit {
         this.films = this.response.films;
       }
     );
+  }
+
+  clickRouting(id: number): void {
+    this.router.navigate(['about', id]);
   }
 
 }

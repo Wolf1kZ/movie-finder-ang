@@ -1,0 +1,44 @@
+<main>
+  <div class="container">
+    <h1 *ngIf="movie.data.nameRu">{{movie.data.nameRu}}</h1>
+    <h1 *ngIf="!movie.data.nameRu">{{movie.data.nameEn}}</h1>
+    <h2 class="movie-slogan">{{movie.data.slogan}}</h2>
+    <div class="movie">
+      <img src="{{movie.data.posterUrl}}" alt="Poster">
+      <div class="movie-info">
+        <div class="description">
+          <h2>Описание</h2>
+          <p>{{movie.data.description}}</p>
+        </div>
+        <h2>Даты премьер</h2>
+        <div class="premier-date">
+          <div class="russian">
+            <h3>Премьера в России: {{movie.data.premiereRu}}</h3>
+          </div>
+          <div class="world">
+            <h3>Премьера в мире: {{movie.data.premiereWorld}}</h3>
+          </div>
+        </div>
+        <h2>Жанры</h2>
+        <ul class="movie-genres">
+          <li *ngFor="let genre of movie.data.genres">{{genre.genre}}</li>
+        </ul>
+        <h2>Другая информация</h2>
+        <div class="other-info">
+          <h3>Продолжительность фильма: {{lengthMovieH}} ч. {{lengthMovieM}} м.</h3>
+          <h3>Возврастные ограничения: {{movie.data.ratingAgeLimits}}+</h3>
+        </div>
+        <h2>Рейтинг</h2>
+        <div class="rating">
+          <h3>Рейтинг на кинопоиске: {{movie.rating.rating}}</h3>
+          <h3>Рейтинг IMDb: {{movie.rating.ratingImdb}}</h3>
+        </div>
+      </div>
+    </div>
+    <div class="container-trailer">
+      <h2>Трейлер</h2>
+      <youtube-player [height]="500" [width]="850" *ngIf="videoId" [videoId]="videoId"></youtube-player>
+    </div>
+    <a mat-raised-button color="primary" href="{{movie.data.webUrl}}" target="_blank">Посмотреть на кинопоиске</a>
+  </div>
+</main>

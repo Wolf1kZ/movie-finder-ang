@@ -11,6 +11,7 @@ export class MovieService {
   private searchUrl = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?';
   private topMoviesUrl = 'https://kinopoiskapiunofficial.tech/api/v2.2/films/top?';
   private searchByGenreUrl = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-filters?';
+  private aboutUrl = 'https://kinopoiskapiunofficial.tech/api/v2.1/films/';
 
   constructor(
     private http: HttpClient
@@ -38,6 +39,24 @@ export class MovieService {
       .set('X-API-KEY', this.API_KEY);
     return this.http.get(
       this.searchByGenreUrl + `genre=${idGenre}&type=FILM&page=${page}`,
+      {headers}
+    );
+  }
+
+  getInformationAboutMovie(movieId: number): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('X-API-KEY', this.API_KEY);
+    return this.http.get(
+      this.aboutUrl + movieId + `?append_to_response=RATING`,
+      {headers}
+    );
+  }
+
+  getMovieVideos(movieId: number): Observable<any> {
+    const headers = new HttpHeaders()
+      .set('X-API-KEY', this.API_KEY);
+    return this.http.get(
+      this.aboutUrl + movieId + '/videos',
       {headers}
     );
   }

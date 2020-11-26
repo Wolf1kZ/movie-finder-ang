@@ -17,6 +17,11 @@ const routes: Routes = [
     path: 'genresFilms',
     loadChildren: (): Promise<any> => import('./modules/genres-films/genresFilms.module')
       .then((m): typeof m.GenresFilmsModule => m.GenresFilmsModule)
+  },
+  {
+    path: 'about/:id',
+    loadChildren: (): Promise<any> => import('./modules/about-film/about-film.module')
+      .then((m): typeof m.AboutFilmModule => m.AboutFilmModule)
   }
 ];
 
